@@ -115,8 +115,7 @@ export const drinks: Drink[] = [
   // ── Bay Area / CA ──
   { id: "cr-87", name: "21st Amendment Hell or High Watermelon", category: "craft", abv: 4.9, volumeOz: 12, alcohols: 58.8 },
   { id: "cr-88", name: "21st Amendment Brew Free or Die", category: "craft", abv: 7.0, volumeOz: 12, alcohols: 84.0 },
-  { id: "cr-89", name: "21st Amendment Blah Blah Blah", category: "craft", abv: 7.0, volumeOz: 12, alcohols: 84.0 },
-  { id: "cr-90", name: "Drake's Denogginizer", category: "craft", abv: 9.75, volumeOz: 12, alcohols: 117.0 },
+  { id: "cr-89", name: "Drake's Denogginizer", category: "craft", abv: 9.75, volumeOz: 12, alcohols: 117.0 },
   { id: "cr-91", name: "Drake's 1500 Pale Ale", category: "craft", abv: 5.5, volumeOz: 12, alcohols: 66.0 },
   { id: "cr-92", name: "Bear Republic Racer 5", category: "craft", abv: 7.5, volumeOz: 12, alcohols: 90.0 },
   { id: "cr-93", name: "Anderson Valley Boont Amber", category: "craft", abv: 5.8, volumeOz: 12, alcohols: 69.6 },

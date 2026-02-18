@@ -32,7 +32,11 @@ export default function DrinkSearch({ onAdd }: DrinkSearchProps) {
       const q = query.toLowerCase().trim();
       results = results.filter((d) => d.name.toLowerCase().includes(q));
     }
-    return results.slice().sort((a, b) => a.name.localeCompare(b.name));
+    const sorted = results.slice().sort((a, b) => a.name.localeCompare(b.name));
+    if (activeCategory !== "all") return sorted;
+    // In "All" view, lead with domestic beers then rest by category order
+    const categoryOrder: DrinkCategory[] = ["domestic", "craft", "seltzer", "wine", "spirit", "cocktail"];
+    return sorted.sort((a, b) => categoryOrder.indexOf(a.category) - categoryOrder.indexOf(b.category));
   }, [query, activeCategory]);
 
   return (
