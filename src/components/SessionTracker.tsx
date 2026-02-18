@@ -50,7 +50,7 @@ export default function SessionTracker({
       <button
         onClick={() => setExpanded(!expanded)}
         className="w-full border-t px-4 py-3"
-        style={{ borderColor: "var(--border)", backgroundColor: "var(--bg-card)" }}
+        style={{ borderColor: "var(--border)", backgroundColor: "var(--tab-active-bg)" }}
       >
         <div className="mx-auto flex max-w-lg items-center justify-between">
           <div className="flex items-center gap-2 font-mono text-sm" style={{ color: "var(--text-secondary)" }}>
