@@ -47,7 +47,7 @@ export default function Header() {
         <div className="flex items-center gap-1">
           <button
             onClick={toggle}
-            className="font-mono text-xs min-h-[44px] min-w-[44px] flex items-center justify-center transition-colors"
+            className="font-mono text-sm min-h-[44px] min-w-[44px] flex items-center justify-center transition-colors"
             style={{ color: "var(--text-secondary)" }}
             aria-label={`Switch to ${theme === "dark" ? "light" : "dark"} mode`}
           >
@@ -55,7 +55,7 @@ export default function Header() {
           </button>
           <Link
             href="/faq"
-            className="font-mono text-xs min-h-[44px] min-w-[44px] flex items-center justify-center transition-colors"
+            className="font-mono text-sm min-h-[44px] min-w-[44px] flex items-center justify-center transition-colors"
             style={{ color: "var(--text-secondary)" }}
           >
             FAQ
