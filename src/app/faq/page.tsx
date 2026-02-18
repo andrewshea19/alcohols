@@ -133,15 +133,7 @@ export default function FAQPage() {
         </section>
       </div>
 
-      <div className="mt-8 border-t pt-4 pb-8" style={{ borderColor: "var(--border)" }}>
-        <Link
-          href="/"
-          className="font-mono text-sm transition-colors"
-          style={{ color: "var(--text-secondary)" }}
-        >
-          &larr; Back to tracker
-        </Link>
-      </div>
+      <div className="pb-8" />
     </div>
   );
 }
