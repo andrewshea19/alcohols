@@ -127,7 +127,7 @@ export default function Header() {
             {eggStep === "prove" && (
               <>
                 <p className="font-mono text-lg text-center" style={{ color: "var(--text)" }}>
-                  Then prove it
+                  Then prove it.
                 </p>
                 <div className="mt-4">
                   <button
