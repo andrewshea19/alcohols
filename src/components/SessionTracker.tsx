@@ -27,7 +27,7 @@ export default function SessionTracker({
       {expanded && (
         <div
           className="mx-auto max-w-lg border-x border-t rounded-t-lg max-h-[60vh] overflow-y-auto"
-          style={{ borderColor: "var(--border)", backgroundColor: "var(--bg-card)" }}
+          style={{ borderColor: "var(--border)", backgroundColor: "var(--tab-active-bg)" }}
         >
           <div className="flex items-center justify-between border-b px-4 py-3" style={{ borderColor: "var(--border)" }}>
             <h3 className="font-mono text-xs font-bold uppercase tracking-wider" style={{ color: "var(--text-secondary)" }}>
