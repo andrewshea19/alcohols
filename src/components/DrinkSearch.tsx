@@ -66,7 +66,7 @@ export default function DrinkSearch({ onAdd }: DrinkSearchProps) {
         )}
       </div>
 
-      <div className="grid grid-cols-4 gap-2">
+      <div className="grid grid-cols-7 gap-1.5">
         {categories.map((cat) => {
           const isActive = activeCategory === cat;
           const abbr = cat === "all" ? "All" : categoryLabels[cat].abbr;
@@ -82,7 +82,7 @@ export default function DrinkSearch({ onAdd }: DrinkSearchProps) {
                 color: isActive ? "var(--accent)" : "var(--text-secondary)",
               }}
             >
-              <span className="text-base font-bold leading-tight">{abbr}</span>
+              <span className="text-sm font-bold leading-tight">{abbr}</span>
               {name && (
                 <span className="text-[10px] leading-tight opacity-70">{name}</span>
               )}
