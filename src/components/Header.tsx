@@ -144,7 +144,7 @@ export default function Header() {
             {eggStep === "error" && (
               <>
                 <p className="font-mono text-lg text-center" style={{ color: "var(--danger)" }}>
-                  Wrong answer.
+                  Finish your drink.
                 </p>
                 <div className="mt-4">
                   <button
