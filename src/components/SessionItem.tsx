@@ -9,7 +9,7 @@ export default function SessionItem({ item, onRemove }: SessionItemProps) {
   const cat = categoryLabels[item.drink.category];
 
   return (
-    <div className="flex items-center justify-between border-b px-4 py-3 last:border-b-0" style={{ borderColor: "var(--border)" }}>
+    <div className="flex items-center justify-between border-b px-4 py-3" style={{ borderColor: "var(--border)" }}>
       <div className="min-w-0 flex-1">
         <div className="flex items-center gap-2">
           <span
