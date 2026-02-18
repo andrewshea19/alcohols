@@ -199,6 +199,7 @@ export const drinks: Drink[] = [
   { id: "sp-12", name: "Jagermeister (shot)", category: "spirit", abv: 35.0, volumeOz: 1.5, alcohols: 52.5 },
   { id: "sp-13", name: "Hennessy (shot)", category: "spirit", abv: 40.0, volumeOz: 1.5, alcohols: 60.0 },
   { id: "sp-14", name: "Malort (shot)", category: "spirit", abv: 35.0, volumeOz: 1.5, alcohols: 52.5 },
+  { id: "sp-15", name: "Moonshine (shot)", category: "spirit", abv: 75.0, volumeOz: 1.5, alcohols: 112.5 },
 
   // ── Cocktails — Tequila & Mezcal (15) ──
   { id: "ck-01", name: "Margarita", category: "cocktail", abv: 13.0, volumeOz: 6, alcohols: 78.0 },
