@@ -32,7 +32,7 @@ export default function DrinkSearch({ onAdd }: DrinkSearchProps) {
       const q = query.toLowerCase().trim();
       results = results.filter((d) => d.name.toLowerCase().includes(q));
     }
-    return results;
+    return results.slice().sort((a, b) => a.name.localeCompare(b.name));
   }, [query, activeCategory]);
 
   return (
