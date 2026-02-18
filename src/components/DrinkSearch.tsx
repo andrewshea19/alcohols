@@ -46,6 +46,7 @@ export default function DrinkSearch({ onAdd }: DrinkSearchProps) {
           type="text"
           value={query}
           onChange={(e) => setQuery(e.target.value)}
+          onKeyDown={(e) => { if (e.key === "Enter") (e.target as HTMLInputElement).blur(); }}
           placeholder="Search drinks..."
           className="w-full rounded-lg border px-4 py-3 font-mono text-sm"
           style={{
