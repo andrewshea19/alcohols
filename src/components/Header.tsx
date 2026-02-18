@@ -10,9 +10,13 @@ export default function Header() {
     <header className="px-4 pt-6 pb-4">
       <div className="flex items-center justify-between">
         <div className="flex items-center gap-3">
-          <div className="border px-2 py-1 font-mono text-sm glow-green-subtle" style={{ borderColor: "var(--border)", color: "var(--accent)" }}>
+          <button
+            onClick={() => alert("Are you a Cardinal?")}
+            className="border px-2 py-1 font-mono text-sm glow-green-subtle cursor-default"
+            style={{ borderColor: "var(--border)", color: "var(--accent)" }}
+          >
             EtOH
-          </div>
+          </button>
           <h1 className="font-mono text-2xl font-bold tracking-wider" style={{ color: "var(--text)" }}>
             ALCOHOLS
           </h1>
