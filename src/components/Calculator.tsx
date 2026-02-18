@@ -48,7 +48,7 @@ export default function Calculator({ onAdd }: CalculatorProps) {
             type="text"
             value={name}
             onChange={(e) => setName(e.target.value)}
-            placeholder="e.g. Mystery Punch"
+            placeholder="e.g. Jungle Juice"
             className="w-full rounded-lg border px-4 py-3 font-mono text-sm"
             style={{ borderColor: "var(--border)", backgroundColor: "var(--input-bg)", color: "var(--text)" }}
           />
