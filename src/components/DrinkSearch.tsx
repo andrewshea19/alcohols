@@ -66,7 +66,7 @@ export default function DrinkSearch({ onAdd }: DrinkSearchProps) {
         )}
       </div>
 
-      <div className="flex flex-wrap gap-2">
+      <div className="grid grid-cols-4 gap-2">
         {categories.map((cat) => {
           const isActive = activeCategory === cat;
           const abbr = cat === "all" ? "All" : categoryLabels[cat].abbr;
@@ -75,7 +75,7 @@ export default function DrinkSearch({ onAdd }: DrinkSearchProps) {
             <button
               key={cat}
               onClick={() => setActiveCategory(cat)}
-              className="min-h-[44px] rounded border px-2.5 py-1.5 font-mono transition-colors flex flex-col items-center justify-center"
+              className="min-h-[44px] rounded border py-1.5 font-mono transition-colors flex flex-col items-center justify-center"
               style={{
                 borderColor: isActive ? "var(--accent)" : "var(--border)",
                 backgroundColor: isActive ? "var(--accent-filter-bg)" : "var(--bg-card)",
