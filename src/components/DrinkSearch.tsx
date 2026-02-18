@@ -5,15 +5,8 @@ import { drinks } from "@/data/drinks";
 import { Drink, DrinkCategory, categoryLabels } from "@/lib/types";
 import DrinkCard from "./DrinkCard";
 
-const categories: (DrinkCategory | "all")[] = [
-  "all",
-  "domestic",
-  "craft",
-  "seltzer",
-  "wine",
-  "spirit",
-  "cocktail",
-];
+const row1: (DrinkCategory | "all")[] = ["all", "domestic", "craft"];
+const row2: DrinkCategory[] = ["seltzer", "wine", "spirit", "cocktail"];
 
 interface DrinkSearchProps {
   onAdd: (drink: Drink) => void;
@@ -66,29 +59,53 @@ export default function DrinkSearch({ onAdd }: DrinkSearchProps) {
         )}
       </div>
 
-      <div className="grid grid-cols-4 gap-2">
-        {categories.map((cat) => {
-          const isActive = activeCategory === cat;
-          const abbr = cat === "all" ? "All" : categoryLabels[cat].abbr;
-          const name = cat === "all" ? null : categoryLabels[cat].name;
-          return (
-            <button
-              key={cat}
-              onClick={() => setActiveCategory(cat)}
-              className="min-h-[44px] rounded border py-1.5 font-mono transition-colors flex flex-col items-center justify-center"
-              style={{
-                borderColor: isActive ? "var(--accent)" : "var(--border)",
-                backgroundColor: isActive ? "var(--accent-filter-bg)" : "var(--bg-card)",
-                color: isActive ? "var(--accent)" : "var(--text-secondary)",
-              }}
-            >
-              <span className="text-sm font-bold leading-tight">{abbr}</span>
-              {name && (
+      <div className="flex flex-col gap-2">
+        <div className="grid grid-cols-3 gap-2">
+          {row1.map((cat) => {
+            const isActive = activeCategory === cat;
+            const abbr = cat === "all" ? "All" : categoryLabels[cat].abbr;
+            const name = cat === "all" ? null : categoryLabels[cat].name;
+            return (
+              <button
+                key={cat}
+                onClick={() => setActiveCategory(cat)}
+                className="min-h-[44px] rounded border py-1.5 font-mono transition-colors flex flex-col items-center justify-center"
+                style={{
+                  borderColor: isActive ? "var(--accent)" : "var(--border)",
+                  backgroundColor: isActive ? "var(--accent-filter-bg)" : "var(--bg-card)",
+                  color: isActive ? "var(--accent)" : "var(--text-secondary)",
+                }}
+              >
+                <span className="text-sm font-bold leading-tight">{abbr}</span>
+                {name && (
+                  <span className="text-[10px] leading-tight opacity-70">{name}</span>
+                )}
+              </button>
+            );
+          })}
+        </div>
+        <div className="grid grid-cols-4 gap-2">
+          {row2.map((cat) => {
+            const isActive = activeCategory === cat;
+            const abbr = categoryLabels[cat].abbr;
+            const name = categoryLabels[cat].name;
+            return (
+              <button
+                key={cat}
+                onClick={() => setActiveCategory(cat)}
+                className="min-h-[44px] rounded border py-1.5 font-mono transition-colors flex flex-col items-center justify-center"
+                style={{
+                  borderColor: isActive ? "var(--accent)" : "var(--border)",
+                  backgroundColor: isActive ? "var(--accent-filter-bg)" : "var(--bg-card)",
+                  color: isActive ? "var(--accent)" : "var(--text-secondary)",
+                }}
+              >
+                <span className="text-sm font-bold leading-tight">{abbr}</span>
                 <span className="text-[10px] leading-tight opacity-70">{name}</span>
-              )}
-            </button>
-          );
-        })}
+              </button>
+            );
+          })}
+        </div>
       </div>
 
       <div className="flex flex-col gap-2">
