@@ -171,6 +171,7 @@ export const drinks: Drink[] = [
   { id: "sc-08", name: "Topo Chico Hard Seltzer", category: "seltzer", abv: 4.7, volumeOz: 12, alcohols: 56.4 },
   { id: "sc-09", name: "Bud Light Seltzer", category: "seltzer", abv: 5.0, volumeOz: 12, alcohols: 60.0 },
   { id: "sc-10", name: "Mike's Hard Lemonade", category: "seltzer", abv: 5.0, volumeOz: 12, alcohols: 60.0 },
+  { id: "sc-11", name: "Smirnoff Ice", category: "seltzer", abv: 4.5, volumeOz: 12, alcohols: 54.0 },
 
   // ── Wines (10) ──
   { id: "wi-01", name: "Chardonnay (glass)", category: "wine", abv: 13.5, volumeOz: 5, alcohols: 67.5 },
