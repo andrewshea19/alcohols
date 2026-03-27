@@ -19,24 +19,22 @@ interface DrinkSearchProps {
   onAdd: (drink: Drink) => void;
 }
 
-type SortMode = "az" | "za" | "alc-desc" | "alc-asc";
-
-const sortCycle: SortMode[] = ["az", "za", "alc-desc", "alc-asc"];
-const sortLabels: Record<SortMode, string> = {
-  "az": "A–Z",
-  "za": "Z–A",
-  "alc-desc": "Alcohols ↓",
-  "alc-asc": "Alcohols ↑",
-};
+type SortField = "name" | "alcohols";
+type SortDir = "asc" | "desc";
 
 export default function DrinkSearch({ onAdd }: DrinkSearchProps) {
   const [query, setQuery] = useState("");
   const [activeCategory, setActiveCategory] = useState<DrinkCategory | "all">("all");
-  const [sortMode, setSortMode] = useState<SortMode>("az");
+  const [sortField, setSortField] = useState<SortField>("name");
+  const [sortDir, setSortDir] = useState<SortDir>("asc");
 
-  function cycleSort() {
-    const i = sortCycle.indexOf(sortMode);
-    setSortMode(sortCycle[(i + 1) % sortCycle.length]);
+  function handleSort(field: SortField) {
+    if (sortField === field) {
+      setSortDir(sortDir === "asc" ? "desc" : "asc");
+    } else {
+      setSortField(field);
+      setSortDir(field === "name" ? "asc" : "desc");
+    }
   }
 
   const filtered = useMemo(() => {
@@ -49,22 +47,14 @@ export default function DrinkSearch({ onAdd }: DrinkSearchProps) {
       results = results.filter((d) => d.name.toLowerCase().includes(q));
     }
     const sorted = results.slice();
-    switch (sortMode) {
-      case "za":
-        return sorted.sort((a, b) => b.name.localeCompare(a.name));
-      case "alc-desc":
-        return sorted.sort((a, b) => b.alcohols - a.alcohols);
-      case "alc-asc":
-        return sorted.sort((a, b) => a.alcohols - b.alcohols);
-      case "az":
-      default: {
-        sorted.sort((a, b) => a.name.localeCompare(b.name));
-        if (activeCategory !== "all") return sorted;
-        const categoryOrder: DrinkCategory[] = ["domestic", "craft", "seltzer", "wine", "spirit", "cocktail"];
-        return sorted.sort((a, b) => categoryOrder.indexOf(a.category) - categoryOrder.indexOf(b.category));
-      }
+    if (sortField === "alcohols") {
+      return sorted.sort((a, b) => sortDir === "desc" ? b.alcohols - a.alcohols : a.alcohols - b.alcohols);
     }
-  }, [query, activeCategory, sortMode]);
+    sorted.sort((a, b) => sortDir === "asc" ? a.name.localeCompare(b.name) : b.name.localeCompare(a.name));
+    if (activeCategory !== "all" || sortDir === "desc") return sorted;
+    const categoryOrder: DrinkCategory[] = ["domestic", "craft", "seltzer", "wine", "spirit", "cocktail"];
+    return sorted.sort((a, b) => categoryOrder.indexOf(a.category) - categoryOrder.indexOf(b.category));
+  }, [query, activeCategory, sortField, sortDir]);
 
   return (
     <div className="flex flex-col gap-3">
@@ -119,13 +109,20 @@ export default function DrinkSearch({ onAdd }: DrinkSearchProps) {
         })}
       </div>
 
-      <div className="flex justify-end">
+      <div className="flex justify-end gap-3">
         <button
-          onClick={cycleSort}
+          onClick={() => handleSort("name")}
           className="font-mono text-xs cursor-pointer"
-          style={{ color: "var(--text-secondary)" }}
+          style={{ color: sortField === "name" ? "var(--accent)" : "var(--text-secondary)" }}
         >
-          Sort: {sortLabels[sortMode]}
+          Name {sortField === "name" ? (sortDir === "asc" ? "↑" : "↓") : ""}
+        </button>
+        <button
+          onClick={() => handleSort("alcohols")}
+          className="font-mono text-xs cursor-pointer"
+          style={{ color: sortField === "alcohols" ? "var(--accent)" : "var(--text-secondary)" }}
+        >
+          Alcohols {sortField === "alcohols" ? (sortDir === "desc" ? "↓" : "↑") : ""}
         </button>
       </div>
 
