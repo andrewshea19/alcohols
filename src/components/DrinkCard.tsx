@@ -10,12 +10,12 @@ export default function DrinkCard({ drink, onAdd }: DrinkCardProps) {
 
   return (
     <div
-      className="card-hover flex items-center justify-between rounded-lg border px-4 py-2.5"
+      className="card-hover flex items-center justify-between rounded-lg border px-3 py-2"
       style={{ borderColor: "var(--border)", backgroundColor: "var(--bg-card)" }}
     >
       <div className="min-w-0 flex-1">
         <div className="font-medium truncate" style={{ color: "var(--text)" }}>{drink.name}</div>
-        <div className="mt-1 flex items-center gap-2 text-sm" style={{ color: "var(--text-secondary)" }}>
+        <div className="mt-0.5 flex items-center gap-2 text-sm" style={{ color: "var(--text-secondary)" }}>
           <span
             className="inline-flex items-center justify-center border px-1.5 py-0.5 font-mono text-xs shrink-0"
             style={{ borderColor: "var(--border)", color: "var(--text-secondary)" }}
@@ -26,18 +26,20 @@ export default function DrinkCard({ drink, onAdd }: DrinkCardProps) {
             {drink.abv}% &middot; {drink.volumeOz}oz
           </span>
         </div>
-        <div className="mt-1 font-mono text-lg font-bold glow-green" style={{ color: "var(--accent)" }}>
-          {drink.alcohols.toFixed(1)}
-        </div>
       </div>
-      <button
-        onClick={() => onAdd(drink)}
-        className="ml-3 flex h-11 w-11 shrink-0 items-center justify-center rounded-lg text-xl font-bold active:scale-95 transition-transform cursor-pointer"
-        style={{ backgroundColor: "var(--accent-btn)", color: "var(--accent-btn-text)" }}
-        aria-label={`Add ${drink.name}`}
-      >
-        +
-      </button>
+      <div className="ml-3 flex items-center gap-2 shrink-0">
+        <span className="font-mono text-lg font-bold glow-green" style={{ color: "var(--accent)" }}>
+          {drink.alcohols.toFixed(1)}
+        </span>
+        <button
+          onClick={() => onAdd(drink)}
+          className="flex h-10 w-10 items-center justify-center rounded-lg text-xl font-bold active:scale-95 transition-transform cursor-pointer"
+          style={{ backgroundColor: "var(--accent-btn)", color: "var(--accent-btn-text)" }}
+          aria-label={`Add ${drink.name}`}
+        >
+          +
+        </button>
+      </div>
     </div>
   );
 }

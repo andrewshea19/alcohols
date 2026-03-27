@@ -47,7 +47,7 @@ export default function Home() {
       <div className="mx-4 mb-3 flex rounded-lg border p-1" style={{ borderColor: "var(--border)", backgroundColor: "var(--bg-card)" }}>
         <button
           onClick={() => setActiveTab("drinks")}
-          className="flex-1 rounded-md py-2.5 font-mono text-sm transition-colors min-h-[44px] cursor-pointer"
+          className="flex-1 rounded-md py-1.5 font-mono text-sm transition-colors min-h-[36px] cursor-pointer"
           style={{
             backgroundColor: activeTab === "drinks" ? "var(--tab-active-bg)" : "transparent",
             color: activeTab === "drinks" ? "var(--text)" : "var(--text-secondary)",
@@ -57,7 +57,7 @@ export default function Home() {
         </button>
         <button
           onClick={() => setActiveTab("calculator")}
-          className="flex-1 rounded-md py-2.5 font-mono text-sm transition-colors min-h-[44px] cursor-pointer"
+          className="flex-1 rounded-md py-1.5 font-mono text-sm transition-colors min-h-[36px] cursor-pointer"
           style={{
             backgroundColor: activeTab === "calculator" ? "var(--tab-active-bg)" : "transparent",
             color: activeTab === "calculator" ? "var(--text)" : "var(--text-secondary)",

@@ -65,7 +65,7 @@ export default function DrinkSearch({ onAdd }: DrinkSearchProps) {
           onChange={(e) => setQuery(e.target.value)}
           onKeyDown={(e) => { if (e.key === "Enter") (e.target as HTMLInputElement).blur(); }}
           placeholder="Search drinks..."
-          className="w-full rounded-lg border px-4 py-2.5 font-mono text-base"
+          className="w-full rounded-lg border px-3 py-2 font-mono text-sm"
           style={{
             borderColor: "var(--border)",
             backgroundColor: "var(--bg-card)",
