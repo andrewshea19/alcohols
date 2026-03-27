@@ -19,12 +19,25 @@ interface DrinkSearchProps {
   onAdd: (drink: Drink) => void;
 }
 
-type SortMode = "alpha" | "alcohols";
+type SortMode = "az" | "za" | "alc-desc" | "alc-asc";
+
+const sortCycle: SortMode[] = ["az", "za", "alc-desc", "alc-asc"];
+const sortLabels: Record<SortMode, string> = {
+  "az": "A–Z",
+  "za": "Z–A",
+  "alc-desc": "Alcohols ↓",
+  "alc-asc": "Alcohols ↑",
+};
 
 export default function DrinkSearch({ onAdd }: DrinkSearchProps) {
   const [query, setQuery] = useState("");
   const [activeCategory, setActiveCategory] = useState<DrinkCategory | "all">("all");
-  const [sortMode, setSortMode] = useState<SortMode>("alpha");
+  const [sortMode, setSortMode] = useState<SortMode>("az");
+
+  function cycleSort() {
+    const i = sortCycle.indexOf(sortMode);
+    setSortMode(sortCycle[(i + 1) % sortCycle.length]);
+  }
 
   const filtered = useMemo(() => {
     let results = drinks;
@@ -35,13 +48,22 @@ export default function DrinkSearch({ onAdd }: DrinkSearchProps) {
       const q = query.toLowerCase().trim();
       results = results.filter((d) => d.name.toLowerCase().includes(q));
     }
-    if (sortMode === "alcohols") {
-      return results.slice().sort((a, b) => b.alcohols - a.alcohols);
+    const sorted = results.slice();
+    switch (sortMode) {
+      case "za":
+        return sorted.sort((a, b) => b.name.localeCompare(a.name));
+      case "alc-desc":
+        return sorted.sort((a, b) => b.alcohols - a.alcohols);
+      case "alc-asc":
+        return sorted.sort((a, b) => a.alcohols - b.alcohols);
+      case "az":
+      default: {
+        sorted.sort((a, b) => a.name.localeCompare(b.name));
+        if (activeCategory !== "all") return sorted;
+        const categoryOrder: DrinkCategory[] = ["domestic", "craft", "seltzer", "wine", "spirit", "cocktail"];
+        return sorted.sort((a, b) => categoryOrder.indexOf(a.category) - categoryOrder.indexOf(b.category));
+      }
     }
-    const sorted = results.slice().sort((a, b) => a.name.localeCompare(b.name));
-    if (activeCategory !== "all") return sorted;
-    const categoryOrder: DrinkCategory[] = ["domestic", "craft", "seltzer", "wine", "spirit", "cocktail"];
-    return sorted.sort((a, b) => categoryOrder.indexOf(a.category) - categoryOrder.indexOf(b.category));
   }, [query, activeCategory, sortMode]);
 
   return (
@@ -97,28 +119,13 @@ export default function DrinkSearch({ onAdd }: DrinkSearchProps) {
         })}
       </div>
 
-      <div className="flex gap-2">
+      <div className="flex justify-end">
         <button
-          onClick={() => setSortMode("alpha")}
-          className="flex-1 rounded border py-2 font-mono text-xs transition-colors cursor-pointer"
-          style={{
-            borderColor: sortMode === "alpha" ? "var(--accent)" : "var(--border)",
-            backgroundColor: sortMode === "alpha" ? "var(--accent-filter-bg)" : "var(--bg-card)",
-            color: sortMode === "alpha" ? "var(--accent)" : "var(--text-secondary)",
-          }}
+          onClick={cycleSort}
+          className="font-mono text-xs cursor-pointer"
+          style={{ color: "var(--text-secondary)" }}
         >
-          A–Z
-        </button>
-        <button
-          onClick={() => setSortMode("alcohols")}
-          className="flex-1 rounded border py-2 font-mono text-xs transition-colors cursor-pointer"
-          style={{
-            borderColor: sortMode === "alcohols" ? "var(--accent)" : "var(--border)",
-            backgroundColor: sortMode === "alcohols" ? "var(--accent-filter-bg)" : "var(--bg-card)",
-            color: sortMode === "alcohols" ? "var(--accent)" : "var(--text-secondary)",
-          }}
-        >
-          Alcohols ↓
+          Sort: {sortLabels[sortMode]}
         </button>
       </div>
 
