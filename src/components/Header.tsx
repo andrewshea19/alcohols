@@ -68,8 +68,8 @@ export default function Header() {
       </p>
 
       {eggStep && (
-        <div className="fixed inset-0 z-[100] flex items-center justify-center px-4" style={{ backgroundColor: "rgba(0,0,0,0.6)" }}>
-          <div className="w-full max-w-sm rounded-lg border p-5" style={{ borderColor: "var(--border)", backgroundColor: "var(--bg-card)" }}>
+        <div className="fixed inset-0 z-[100] flex items-center justify-center px-4 cursor-pointer" style={{ backgroundColor: "rgba(0,0,0,0.6)" }} onClick={handleClose}>
+          <div className="w-full max-w-sm rounded-lg border p-5 cursor-default" style={{ borderColor: "var(--border)", backgroundColor: "var(--bg-card)" }} onClick={(e) => e.stopPropagation()}>
 
             {eggStep === "ask" && (
               <>

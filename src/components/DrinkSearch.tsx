@@ -19,9 +19,12 @@ interface DrinkSearchProps {
   onAdd: (drink: Drink) => void;
 }
 
+type SortMode = "alpha" | "alcohols";
+
 export default function DrinkSearch({ onAdd }: DrinkSearchProps) {
   const [query, setQuery] = useState("");
   const [activeCategory, setActiveCategory] = useState<DrinkCategory | "all">("all");
+  const [sortMode, setSortMode] = useState<SortMode>("alpha");
 
   const filtered = useMemo(() => {
     let results = drinks;
@@ -32,12 +35,14 @@ export default function DrinkSearch({ onAdd }: DrinkSearchProps) {
       const q = query.toLowerCase().trim();
       results = results.filter((d) => d.name.toLowerCase().includes(q));
     }
+    if (sortMode === "alcohols") {
+      return results.slice().sort((a, b) => b.alcohols - a.alcohols);
+    }
     const sorted = results.slice().sort((a, b) => a.name.localeCompare(b.name));
     if (activeCategory !== "all") return sorted;
-    // In "All" view, lead with domestic beers then rest by category order
     const categoryOrder: DrinkCategory[] = ["domestic", "craft", "seltzer", "wine", "spirit", "cocktail"];
     return sorted.sort((a, b) => categoryOrder.indexOf(a.category) - categoryOrder.indexOf(b.category));
-  }, [query, activeCategory]);
+  }, [query, activeCategory, sortMode]);
 
   return (
     <div className="flex flex-col gap-3">
@@ -90,6 +95,31 @@ export default function DrinkSearch({ onAdd }: DrinkSearchProps) {
             </button>
           );
         })}
+      </div>
+
+      <div className="flex gap-2">
+        <button
+          onClick={() => setSortMode("alpha")}
+          className="flex-1 rounded border py-2 font-mono text-xs transition-colors cursor-pointer"
+          style={{
+            borderColor: sortMode === "alpha" ? "var(--accent)" : "var(--border)",
+            backgroundColor: sortMode === "alpha" ? "var(--accent-filter-bg)" : "var(--bg-card)",
+            color: sortMode === "alpha" ? "var(--accent)" : "var(--text-secondary)",
+          }}
+        >
+          A–Z
+        </button>
+        <button
+          onClick={() => setSortMode("alcohols")}
+          className="flex-1 rounded border py-2 font-mono text-xs transition-colors cursor-pointer"
+          style={{
+            borderColor: sortMode === "alcohols" ? "var(--accent)" : "var(--border)",
+            backgroundColor: sortMode === "alcohols" ? "var(--accent-filter-bg)" : "var(--bg-card)",
+            color: sortMode === "alcohols" ? "var(--accent)" : "var(--text-secondary)",
+          }}
+        >
+          Alcohols ↓
+        </button>
       </div>
 
       <div className="flex flex-col gap-2">
