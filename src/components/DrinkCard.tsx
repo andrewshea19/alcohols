@@ -32,7 +32,7 @@ export default function DrinkCard({ drink, onAdd }: DrinkCardProps) {
       </div>
       <button
         onClick={() => onAdd(drink)}
-        className="ml-3 flex h-11 w-11 shrink-0 items-center justify-center rounded-lg text-xl font-bold active:scale-95 transition-transform"
+        className="ml-3 flex h-11 w-11 shrink-0 items-center justify-center rounded-lg text-xl font-bold active:scale-95 transition-transform cursor-pointer"
         style={{ backgroundColor: "var(--accent-btn)", color: "var(--accent-btn-text)" }}
         aria-label={`Add ${drink.name}`}
       >

@@ -35,7 +35,7 @@ export default function Header() {
         <div className="flex items-center gap-3">
           <button
             onClick={() => setEggStep("ask")}
-            className="border px-2 py-1 font-mono text-sm glow-green-subtle cursor-default"
+            className="border px-2 py-1 font-mono text-sm glow-green-subtle cursor-pointer"
             style={{ borderColor: "var(--border)", color: "var(--accent)" }}
           >
             EtOH
@@ -47,7 +47,7 @@ export default function Header() {
         <div className="flex items-center gap-1">
           <button
             onClick={toggle}
-            className="font-mono text-sm min-h-[44px] min-w-[44px] flex items-center justify-center transition-colors"
+            className="font-mono text-sm min-h-[44px] min-w-[44px] flex items-center justify-center transition-colors cursor-pointer"
             style={{ color: "var(--text-secondary)" }}
             aria-label={`Switch to ${theme === "dark" ? "light" : "dark"} mode`}
           >
@@ -79,14 +79,14 @@ export default function Header() {
                 <div className="mt-4 flex gap-2">
                   <button
                     onClick={handleClose}
-                    className="flex-1 min-h-[44px] rounded-lg border font-mono text-sm"
+                    className="flex-1 min-h-[44px] rounded-lg border font-mono text-sm cursor-pointer"
                     style={{ borderColor: "var(--border)", color: "var(--text-secondary)" }}
                   >
                     Close
                   </button>
                   <button
                     onClick={handleNext}
-                    className="flex-1 min-h-[44px] rounded-lg font-mono text-sm font-bold"
+                    className="flex-1 min-h-[44px] rounded-lg font-mono text-sm font-bold cursor-pointer"
                     style={{ backgroundColor: "var(--accent-btn)", color: "var(--accent-btn-text)" }}
                   >
                     Next
@@ -108,14 +108,14 @@ export default function Header() {
                 <div className="mt-4 flex gap-2">
                   <button
                     onClick={handleClose}
-                    className="flex-1 min-h-[44px] rounded-lg border font-mono text-sm"
+                    className="flex-1 min-h-[44px] rounded-lg border font-mono text-sm cursor-pointer"
                     style={{ borderColor: "var(--border)", color: "var(--text-secondary)" }}
                   >
                     Close
                   </button>
                   <button
                     onClick={handleNext}
-                    className="flex-1 min-h-[44px] rounded-lg font-mono text-sm font-bold"
+                    className="flex-1 min-h-[44px] rounded-lg font-mono text-sm font-bold cursor-pointer"
                     style={{ backgroundColor: "var(--accent-btn)", color: "var(--accent-btn-text)" }}
                   >
                     Next
@@ -132,7 +132,7 @@ export default function Header() {
                 <div className="mt-4">
                   <button
                     onClick={handleClose}
-                    className="w-full min-h-[44px] rounded-lg border font-mono text-sm"
+                    className="w-full min-h-[44px] rounded-lg border font-mono text-sm cursor-pointer"
                     style={{ borderColor: "var(--border)", color: "var(--text-secondary)" }}
                   >
                     Close
@@ -149,7 +149,7 @@ export default function Header() {
                 <div className="mt-4">
                   <button
                     onClick={handleClose}
-                    className="w-full min-h-[44px] rounded-lg border font-mono text-sm"
+                    className="w-full min-h-[44px] rounded-lg border font-mono text-sm cursor-pointer"
                     style={{ borderColor: "var(--border)", color: "var(--text-secondary)" }}
                   >
                     Close

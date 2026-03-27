@@ -58,7 +58,7 @@ export default function DrinkSearch({ onAdd }: DrinkSearchProps) {
         {query && (
           <button
             onClick={() => setQuery("")}
-            className="absolute right-3 top-1/2 -translate-y-1/2 text-lg"
+            className="absolute right-3 top-1/2 -translate-y-1/2 text-lg cursor-pointer"
             style={{ color: "var(--text-secondary)" }}
             aria-label="Clear search"
           >
@@ -76,7 +76,7 @@ export default function DrinkSearch({ onAdd }: DrinkSearchProps) {
             <button
               key={cat}
               onClick={() => setActiveCategory(cat)}
-              className="aspect-square rounded border font-mono transition-colors flex flex-col items-center justify-center"
+              className="aspect-square rounded border font-mono transition-colors flex flex-col items-center justify-center cursor-pointer"
               style={{
                 borderColor: isActive ? "var(--accent)" : "var(--border)",
                 backgroundColor: isActive ? "var(--accent-filter-bg)" : "var(--bg-card)",

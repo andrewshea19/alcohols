@@ -102,7 +102,7 @@ export default function Calculator({ onAdd }: CalculatorProps) {
         <button
           onClick={handleAdd}
           disabled={!canAdd}
-          className="min-h-[44px] rounded-lg px-4 py-3 font-mono text-sm font-bold transition-all active:scale-95 disabled:opacity-40 disabled:active:scale-100"
+          className="min-h-[44px] rounded-lg px-4 py-3 font-mono text-sm font-bold transition-all active:scale-95 disabled:opacity-40 disabled:active:scale-100 cursor-pointer disabled:cursor-default"
           style={{ backgroundColor: "var(--accent-btn)", color: "var(--accent-btn-text)" }}
         >
           Add to Log

@@ -32,7 +32,7 @@ export default function SessionItem({ item, onRemove }: SessionItemProps) {
         </span>
         <button
           onClick={() => onRemove(item.sessionId)}
-          className="flex h-8 w-8 items-center justify-center rounded transition-colors"
+          className="flex h-8 w-8 items-center justify-center rounded transition-colors cursor-pointer"
           style={{ color: "var(--text-secondary)" }}
           aria-label={`Remove ${item.drink.name}`}
         >

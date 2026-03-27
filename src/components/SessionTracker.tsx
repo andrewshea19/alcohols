@@ -35,7 +35,7 @@ export default function SessionTracker({
             </h3>
             <button
               onClick={onClear}
-              className="font-mono text-xs min-h-[36px] px-2"
+              className="font-mono text-xs min-h-[36px] px-2 cursor-pointer"
               style={{ color: "var(--danger)" }}
             >
               Clear Log
@@ -49,7 +49,7 @@ export default function SessionTracker({
 
       <button
         onClick={() => setExpanded(!expanded)}
-        className="w-full border-t px-4 py-3"
+        className="w-full border-t px-4 py-3 cursor-pointer"
         style={{ borderColor: "var(--border)", backgroundColor: "var(--tab-active-bg)" }}
       >
         <div className="mx-auto flex max-w-lg items-center justify-between">
