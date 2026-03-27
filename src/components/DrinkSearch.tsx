@@ -57,7 +57,7 @@ export default function DrinkSearch({ onAdd }: DrinkSearchProps) {
   }, [query, activeCategory, sortField, sortDir]);
 
   return (
-    <div className="flex flex-col gap-3">
+    <div className="flex flex-col gap-2">
       <div className="relative">
         <input
           type="text"
@@ -65,7 +65,7 @@ export default function DrinkSearch({ onAdd }: DrinkSearchProps) {
           onChange={(e) => setQuery(e.target.value)}
           onKeyDown={(e) => { if (e.key === "Enter") (e.target as HTMLInputElement).blur(); }}
           placeholder="Search drinks..."
-          className="w-full rounded-lg border px-4 py-3 font-mono text-base"
+          className="w-full rounded-lg border px-4 py-2.5 font-mono text-base"
           style={{
             borderColor: "var(--border)",
             backgroundColor: "var(--bg-card)",
@@ -126,9 +126,9 @@ export default function DrinkSearch({ onAdd }: DrinkSearchProps) {
         </button>
       </div>
 
-      <div className="flex flex-col gap-2">
+      <div className="flex flex-col gap-1.5">
         {filtered.length === 0 ? (
-          <p className="py-8 text-center font-mono text-sm" style={{ color: "var(--text-secondary)" }}>
+          <p className="py-6 text-center font-mono text-sm" style={{ color: "var(--text-secondary)" }}>
             No drinks found.
           </p>
         ) : (

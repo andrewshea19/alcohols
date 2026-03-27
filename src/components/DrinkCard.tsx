@@ -10,7 +10,7 @@ export default function DrinkCard({ drink, onAdd }: DrinkCardProps) {
 
   return (
     <div
-      className="card-hover flex items-center justify-between rounded-lg border px-4 py-3"
+      className="card-hover flex items-center justify-between rounded-lg border px-4 py-2.5"
       style={{ borderColor: "var(--border)", backgroundColor: "var(--bg-card)" }}
     >
       <div className="min-w-0 flex-1">

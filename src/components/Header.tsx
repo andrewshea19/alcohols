@@ -30,7 +30,7 @@ export default function Header() {
   }
 
   return (
-    <header className="px-4 pt-6 pb-4">
+    <header className="px-4 pt-4 pb-3">
       <div className="flex items-center justify-between">
         <div className="flex items-center gap-3">
           <button
@@ -62,7 +62,7 @@ export default function Header() {
           </Link>
         </div>
       </div>
-      <p className="mt-2 font-mono text-sm" style={{ color: "var(--text-secondary)" }}>
+      <p className="mt-1 font-mono text-sm" style={{ color: "var(--text-secondary)" }}>
         ABV &times; Vol ={" "}
         <span className="glow-green-subtle" style={{ color: "var(--accent)" }}>Alcohols</span>
       </p>

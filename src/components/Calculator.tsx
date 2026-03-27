@@ -34,12 +34,12 @@ export default function Calculator({ onAdd }: CalculatorProps) {
   }
 
   return (
-    <div className="rounded-lg border p-4" style={{ borderColor: "var(--border)", backgroundColor: "var(--bg-card)" }}>
-      <h2 className="mb-4 font-mono text-sm font-bold uppercase tracking-wider" style={{ color: "var(--text-secondary)" }}>
+    <div className="rounded-lg border p-3" style={{ borderColor: "var(--border)", backgroundColor: "var(--bg-card)" }}>
+      <h2 className="mb-3 font-mono text-sm font-bold uppercase tracking-wider" style={{ color: "var(--text-secondary)" }}>
         Calculator
       </h2>
 
-      <div className="flex flex-col gap-3">
+      <div className="flex flex-col gap-2.5">
         <div>
           <label className="mb-1 block font-mono text-xs" style={{ color: "var(--text-secondary)" }}>
             Name (optional)
@@ -49,7 +49,7 @@ export default function Calculator({ onAdd }: CalculatorProps) {
             value={name}
             onChange={(e) => setName(e.target.value)}
             placeholder="e.g. Jungle Juice"
-            className="w-full rounded-lg border px-4 py-3 font-mono text-sm"
+            className="w-full rounded-lg border px-4 py-2.5 font-mono text-sm"
             style={{ borderColor: "var(--border)", backgroundColor: "var(--input-bg)", color: "var(--text)" }}
           />
         </div>
@@ -68,7 +68,7 @@ export default function Calculator({ onAdd }: CalculatorProps) {
               min="0"
               max="100"
               step="0.1"
-              className="w-full rounded-lg border px-4 py-3 font-mono text-sm"
+              className="w-full rounded-lg border px-4 py-2.5 font-mono text-sm"
               style={{ borderColor: "var(--border)", backgroundColor: "var(--input-bg)", color: "var(--text)" }}
             />
           </div>
@@ -84,13 +84,13 @@ export default function Calculator({ onAdd }: CalculatorProps) {
               placeholder="12"
               min="0"
               step="0.5"
-              className="w-full rounded-lg border px-4 py-3 font-mono text-sm"
+              className="w-full rounded-lg border px-4 py-2.5 font-mono text-sm"
               style={{ borderColor: "var(--border)", backgroundColor: "var(--input-bg)", color: "var(--text)" }}
             />
           </div>
         </div>
 
-        <div className="lcd-panel rounded-lg p-4 text-center">
+        <div className="lcd-panel rounded-lg p-3 text-center">
           <div className="font-mono text-xs uppercase tracking-wider" style={{ color: "var(--text-secondary)" }}>
             Alcohols
           </div>
@@ -102,7 +102,7 @@ export default function Calculator({ onAdd }: CalculatorProps) {
         <button
           onClick={handleAdd}
           disabled={!canAdd}
-          className="min-h-[44px] rounded-lg px-4 py-3 font-mono text-sm font-bold transition-all active:scale-95 disabled:opacity-40 disabled:active:scale-100 cursor-pointer disabled:cursor-default"
+          className="min-h-[44px] rounded-lg px-4 py-2.5 font-mono text-sm font-bold transition-all active:scale-95 disabled:opacity-40 disabled:active:scale-100 cursor-pointer disabled:cursor-default"
           style={{ backgroundColor: "var(--accent-btn)", color: "var(--accent-btn-text)" }}
         >
           Add to Log

@@ -44,7 +44,7 @@ export default function Home() {
     <div className="mx-auto max-w-lg pb-24">
       <Header />
 
-      <div className="mx-4 mb-4 flex rounded-lg border p-1" style={{ borderColor: "var(--border)", backgroundColor: "var(--bg-card)" }}>
+      <div className="mx-4 mb-3 flex rounded-lg border p-1" style={{ borderColor: "var(--border)", backgroundColor: "var(--bg-card)" }}>
         <button
           onClick={() => setActiveTab("drinks")}
           className="flex-1 rounded-md py-2.5 font-mono text-sm transition-colors min-h-[44px] cursor-pointer"
